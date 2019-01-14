@@ -23,4 +23,5 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    return render_template("success.html")
+    return "Project 1 number xx: TODO"
+
