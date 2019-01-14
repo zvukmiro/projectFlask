@@ -24,3 +24,6 @@ db = scoped_session(sessionmaker(bind=engine))
 @app.route("/")
 def index():
     return "Project 1: TODO"
+
+if __name__ == '__main__':
+    app.run()
