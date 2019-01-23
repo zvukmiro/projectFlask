@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <style type="text/css">
+      body {background: url("https://res.cloudinary.com/dplyxbspe/image/upload/v1546565321/literature-3033196_l8w2fv.jpg")}
+      li:hover {
+          color: #C80815;
+          font-size: 1.5 rem;
+          font-weight: 600;
+      }
+    </style>
+    <h1>Search for Books</h1><br>
+
+    <h5>search by isbn OR title/author</h5>
+    <form action="" method="post">
+        <div class="form-group">
+            <input class="form-control" name="isbn" placeholder="book isbn number">
+        </div>
+        <p> OR </p>
+        <div class="form-group">
+            <input class="form-control-inline mb-2 mr-sm-2" name="title" placeholder="book title">
+            <input class="form-control-inline mb-2 mr-sm-2" name="author" placeholder="book author">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Find a book</button>
+        </div>
+    </form>
+    <br>
+    <p> Click here to <a href="{{ url_for('logout') }}">logout</a></p>
+    <h1>Results</h1><br>
+    {% if books %}
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="{{ url_for('book', isbn=book.isbn) }}">
+                {{ book.title }} </a> - 
+                by {{ book.author }} - published {{ book.year }}
+            </li><br>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <h5> No results found</h5>
+    {% endif %}
+
+{% endblock %}

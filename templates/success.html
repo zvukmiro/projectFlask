@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success
+{% endblock %}
+
+{% block body %}
+    <style type="text/css">
+      body {background: url("https://res.cloudinary.com/dplyxbspe/image/upload/v1545434640/bookHeart.jpg")}
+      h1, h3, p {color: #ffffff;}
+    </style>
+    <h1>Success!</h1>
+
+    <h3>You have posted a book review.</h3>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes" style="list-style-type: none;">
+        {% for message in messages %}
+          <li><h3>{{ message }}</h3></li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <h3>Thank you {{ username }}!</h3>
+    <br>
+    <p>To search for a book click <a href="{{ url_for('books')}}"> here </a></p><br>
+
+    <p> Click here to <a href="{{ url_for('logout') }}"> logout</a></p>
+{% endblock %}
+

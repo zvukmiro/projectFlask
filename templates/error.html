@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+{% block body %}
+    <style type="text/css">
+      body {background: url("https://res.cloudinary.com/dplyxbspe/image/upload/v1476900215/snow_ocg1mk.jpg")}
+      h3, li {color: red;}
+    </style>
+    <br>
+    <h3>    Something went wrong.</h3><br>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes" style="list-style-type: none;">
+        {% for message in messages %}
+          <li><h3>{{ message }}</h3></li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <br>
+    <p>To search for a book click <a href="{{ url_for('books')}}"> here </a> </p><br>
+    <p> Click here to <a href="{{ url_for('logout') }}">logout</a></p>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+    {% block title %}
+        Book
+    {% endblock %}
+
+{% block body %}
+    <style type="text/css">
+      body {background: url("https://res.cloudinary.com/dplyxbspe/image/upload/v1546475942/notebook.jpg")}
+    </style>
+    <h1>Book Details</h1>
+    {% if book %}
+        {% for b in book %}
+            <ul>
+                <li>title: {{ b.title }}</li>
+                <li>author: {{ b.author }}</li>
+                <li>isbn: {{ b.isbn }}</li>
+                <li>publication year: {{ b.year }}</li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+
+    <h2>Reviews</h2>
+    {% if review %}
+        <p> Average review is {{ review }} out of 5 </p>
+    {% else %}
+        <p>No ratings on this site.</p>
+    {% endif %}
+
+    <h3>Goodreads Rating</h3>
+    {% if review2 %}
+        <p> Goodreads rating is {{ review2 }} out of 5 </p>
+    {% else %}
+        <p>No ratings on this site.</p>
+    {% endif %}
+
+    <h3> Post a Review </h3>
+        <form action="{{ url_for('review') }}" method="post">
+
+            <div class="form-group">
+                <input class="form_control" name="isbn" hidden value="0582418275">
+                <input class="form-control" name="review" placeholder="your review (1 to 5 stars)" maxlength = "3">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Post a review</button>
+            </div>
+        </form>
+    <br>
+    <p>To search for a book click <a href="{{ url_for('books')}}"> here </a></p><br>
+
+    <p> Click here to <a href="{{ url_for('logout') }}">logout</a></p>
+{% endblock %}
