@@ -1,3 +1,8 @@
 body{
     background: url("https://res.cloudinary.com/dplyxbspe/image/upload/v1476130594/dandelion.jpg");
 }
+.results li:hover {
+    color: #C80815;
+    font-size: 1.5 rem;
+    font-weight: 600;
+}

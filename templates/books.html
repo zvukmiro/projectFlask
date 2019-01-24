@@ -6,11 +6,6 @@
 {% block body %}
     <style type="text/css">
       body {background: url("https://res.cloudinary.com/dplyxbspe/image/upload/v1546565321/literature-3033196_l8w2fv.jpg")}
-      li:hover {
-          color: #C80815;
-          font-size: 1.5 rem;
-          font-weight: 600;
-      }
     </style>
     <h1>Search for Books</h1><br>
 
@@ -31,6 +26,7 @@
     <br>
     <p> Click here to <a href="{{ url_for('logout') }}">logout</a></p>
     <h1>Results</h1><br>
+    <div class="results">
     {% if books %}
     <ul>
         {% for book in books %}
@@ -41,8 +37,9 @@
             </li><br>
         {% endfor %}
     </ul>
+
     {% else %}
         <h5> No results found</h5>
     {% endif %}
-
+    </div>
 {% endblock %}
