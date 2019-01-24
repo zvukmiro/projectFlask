@@ -17,7 +17,7 @@
     <h5>search by isbn OR title/author</h5>
     <form action="" method="post">
         <div class="form-group">
-            <input class="form-control" name="isbn" placeholder="book isbn number">
+            <input class="form-control" name="isbn" placeholder="book isbn number" style="width: 23em;">
         </div>
         <p> OR </p>
         <div class="form-group">
@@ -36,7 +36,7 @@
         {% for book in books %}
             <li>
                 <a href="{{ url_for('book', isbn=book.isbn) }}">
-                {{ book.title }} </a> - 
+                {{ book.title }} </a> -
                 by {{ book.author }} - published {{ book.year }}
             </li><br>
         {% endfor %}

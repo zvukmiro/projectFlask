@@ -16,11 +16,11 @@
     {% endwith %}
   <form method="POST" action="">
     <div class="form-group">
-        <input class="form-control" name="username" type="text" placeholder="username">
+        <input class="form-control" name="username" type="text" placeholder="username" style="width: 20em;">
     <div>
     <p></p>
     <div class="form-group">
-        <input class="form-control" name="password" type="password" placeholder="password">
+        <input class="form-control" name="password" type="password" placeholder="password" style="width: 20em;">
     <div>
     <p></p>
     <p><input type="submit" class="btn btn-primary" value="Submit"></p>
@@ -29,6 +29,3 @@
   <p> Click to register <a href="{{ url_for('register') }}"> register</a></p>
 
 {% endblock %}
-
-
-
