@@ -158,6 +158,7 @@ def review():
                     flash("Duplicate review for the same book not accepted.")
                     return redirect(url_for('error'))
                 review = float(review)
+                session['review'] = review
                 res = db.execute("INSERT INTO reviews (rw_isbn, rw_user, rating) VALUES (:bookNum, :person, :numb)", {
                                  "bookNum": isbn, "person": username, "numb": review})
                 db.commit()
@@ -177,7 +178,9 @@ def review():
 @app.route("/success")
 def success():
     username = session['username']
-    return render_template("success.html", username=username)
+    isbn = session['isbn']
+    review = session['review']
+    return render_template("success.html", username=username, isbn=isbn, review=review)
 
 
 @app.route("/error")
